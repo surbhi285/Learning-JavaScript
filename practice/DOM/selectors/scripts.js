@@ -63,3 +63,19 @@ unorderedList.append(liElement);
 
 //-----way 2-> innerHTML
 unorderedList.innerHTML = unorderedList.innerHTML+"<li>Surbhi</li>"
+
+
+/*--------REMOVAL OF ELEMENT------*/
+// 1. Select the element to be removed
+//2. to basically do a.remove() on that element
+
+//----to remove the wholelist-----//
+// const elementToRemove = document.getElementById("names")
+// elementToRemove.remove();
+
+// to remove specific element or last element
+
+const removeLastElement = document.querySelector("#names > li:nth-child(6)"); 
+//li:nth-child(6)->search by going to element then copy selectorpath of anyelement which you want to remove
+removeLastElement.remove();
+console.log(removeLastElement);
