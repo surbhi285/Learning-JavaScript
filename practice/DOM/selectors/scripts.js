@@ -70,8 +70,8 @@ unorderedList.innerHTML = unorderedList.innerHTML+"<li>Surbhi</li>"
 //2. to basically do a.remove() on that element
 
 //----to remove the wholelist-----//
-// const elementToRemove = document.getElementById("names")
-// elementToRemove.remove();
+const elementToRemove = document.getElementById("names")
+elementToRemove.remove();
 
 // to remove specific element or last element
 
