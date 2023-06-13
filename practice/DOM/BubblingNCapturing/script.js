@@ -11,33 +11,33 @@ console.dir(child);
 /*Listen when event goes up 
 true -> capturing phase*/
 
-// grandParent.addEventListener("click",()=>{
-//     console.log("grandParent clicked")
-// }, true)
+grandParent.addEventListener("click",()=>{
+    console.log("grandParent clicked")
+}, true)
 
-// parent.addEventListener("click", ()=>{
-//     console.log("parent clicked")
-// }, true)
+parent.addEventListener("click", ()=>{
+    console.log("parent clicked")
+}, true)
 
-// child.addEventListener("click", ()=>{
-//     console.log("child clicked")
-// }, true)
+child.addEventListener("click", ()=>{
+    console.log("child clicked")
+}, true)
 
 //----------Bubbling Phase----------//
 /* Listen when event goes down. 
 false -> bubbling phase*/
 
-// grandParent.addEventListener("click",()=>{
-//     console.log("grandParent clicked")
-// }, false)
+grandParent.addEventListener("click",()=>{
+    console.log("grandParent clicked")
+}, false)
 
-// parent.addEventListener("click", ()=>{
-//     console.log("parent clicked")
-// }, false)
+parent.addEventListener("click", ()=>{
+    console.log("parent clicked")
+}, false)
 
-// child.addEventListener("click", ()=>{
-//     console.log("child clicked")
-// }, false)
+child.addEventListener("click", ()=>{
+    console.log("child clicked")
+}, false)
 
 // event.preventDefault -> it basically save the event to do the default nature.
  //eg-> blocking default click handling -> Toggling the checkbox is the default action of clicking on a checkbox
@@ -45,28 +45,28 @@ false -> bubbling phase*/
 // const checkbox = document.querySelector("#id-checkbox");
 // checkbox.addEventListener("click", checkboxClick, false); // here false indicates that event should handle in bubbling phase
 
-// function checkboxClick(event){
-//     let warn = "preventDefault() wont let you check this!";
-//     document.getElementById("output-box").innerHTML +=warn;
-//     event.preventDefault();
-//}
+function checkboxClick(event){
+    let warn = "preventDefault() wont let you check this!";
+    document.getElementById("output-box").innerHTML +=warn;
+    event.preventDefault();
+}
 
 //------HOW TO STOP THE EVENT -> event.stopPropagation();
 // it stop the event at that point ony it will not go up and down and it will be destroyed by garbage collector
 
-// grandParent.addEventListener("click",(event)=>{
-//         console.log("grandParent clicked")
-//         event.stopPropagation(); // event will stop here only it will not move forward neither it will go down
-//     }, true)
+grandParent.addEventListener("click",(event)=>{
+        console.log("grandParent clicked")
+       // event.stopPropagation(); // event will stop here only it will not move forward neither it will go down
+    }, true)
     
     
-//     parent.addEventListener("click", ()=>{
-//         console.log("parent clicked")
-//     }, true)
+    parent.addEventListener("click", ()=>{
+        console.log("parent clicked")
+    }, true)
     
-//     child.addEventListener("click", ()=>{
-//         console.log("child clicked")
-//     }, true)
+    child.addEventListener("click", ()=>{
+        console.log("child clicked")
+    }, true)
 
 
     // addEventListener is basically adding an object in the memory
