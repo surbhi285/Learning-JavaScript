@@ -29,5 +29,6 @@ parent.addEventListener("click", (event)=> {
 
     const elementBox = event.target;
     const id = elementBox.id;
+    
     elementBox.style.backgroundColor=id;
 })
