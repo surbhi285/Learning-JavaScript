@@ -18,6 +18,7 @@ var a = 10;
 console.log(a); //10
 if(true){
     var b=20;
+ 
     var a =30;
     console.log (b);//20
     console.log(a);//30
