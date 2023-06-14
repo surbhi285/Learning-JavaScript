@@ -1,5 +1,5 @@
 //----Execution context-----
-// var
+// Properties var
 // var has two scope -> global and functional
 // var doesnt care about block.
 // redeclaration is allowed in var
