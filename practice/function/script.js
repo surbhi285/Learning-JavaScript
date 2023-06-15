@@ -100,4 +100,4 @@ console.log(resultArrow, "sumArrow");
  
 //--------------------HIGHER ORDER FUNCTION----------------
 //the function which can return a function is higher order function
-// the function which can accept a function as an argument for eg function logging which we take in callBack func
+// the function which can accept a function as an argument or return for eg function logging which we take in callBack func
