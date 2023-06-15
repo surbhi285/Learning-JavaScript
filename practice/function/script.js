@@ -2,6 +2,7 @@
 /* when function are treated like any other variable. Function can be passed as an argument to other function
 , can be returned by another function and can be assigned as a value to a variable. 
 
+
 1. */
 
 // Assigning function to a variable
