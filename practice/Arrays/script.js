@@ -264,3 +264,12 @@ arrNew.push(108)
 console.log(arrOrg, "org Array")
 console.log(arrNew, "New Array")
 
+// -----------------ARRAY DESTRUCTURING
+const arrDes = [1, 2, 3, 4]
+const[firstVal, secondVal, fourthVal] = arrDes
+/* it is as same as
+const firstVal = arrDes[0];
+const secondVal = arrDes[1];
+*/
+
+console.log("array destructuring", firstVal, secondVal, fourthVal) // 1 2 4
