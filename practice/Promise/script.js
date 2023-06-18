@@ -101,3 +101,73 @@ const promise4 = fetch('https://api.kanye.rest12/')
 // bye
 // Error is here
 // TypeError: Failed to fetch at script.js:85:17
+
+// ----------PROMISING CHAIN-----------
+
+console.log("hello")
+fetch('https://api.kanye.rest/')
+.then(response => { 
+// so this then block return promise of data due to response.json otherwise it will return promise of undefined
+// response handler
+   return response.json()
+}).then (data =>{// if in this then block we are not return anything then next then block will return undefined
+   // data handler
+   console.log("data handler0", data)// so it will give data
+   // if we return anything in it it will be return in next then block
+   return "1 output";
+}).then(data =>{ 
+   // number1 handler
+console.log("data handler1", data) // it will return undefined if we are not returing in previous then block
+// as if we are returning "1 output" in previous then block then it will be return in this block -> 1 output
+}).then(data =>{
+   //num2 handler
+}).then (data=>{
+   //num3 handler
+})
+.catch(error =>{ // if we put error handle here then all the mistake we do in above block will be catch at end
+   console.log("error")
+}).finally(()=>{ //this handler occur when all then and catch block is handled then final block
+   console.log("finally block") // this final handle will not fetch data
+})
+
+console.log("bye")
+
+// if we put finally at first means before then and catch so if api is right then only finally and then block run
+// and if api is wrong then finally and catch block will run
+
+//------------Error Handling ------
+
+console.log("hello")
+fetch('https://api.kanye.rest/')
+.then(response => { 
+// response handler
+   throw Error("Error created by Surbhi")
+   return response.json()
+})//.catch(error=>{ // this catch block handle error of fetch and then block of response
+//    console.log("error level 2") 
+// })
+.then (data =>{
+   // data handler
+   console.log("data handler0", data)
+   return "1 output";  
+}).catch(error=>{ 
+// if we put catch block here then it will handle error of fetch and both then block of response and if there 
+// is error then  response handler and data handler will not console out
+   console.log("error level 2") 
+})
+.then(data =>{ 
+   // number1 handler
+console.log("data handler1", data) 
+}).then(data =>{
+   //num2 handler
+}).then (data=>{
+   //num3 handler
+})
+.catch(error =>{ // if we put error handle here then all the error we do in above block will be catch at end
+   console.log("error")
+})
+
+console.log("bye")
+
+// if we put catch in down then it will be handling all the then block error 
+// we can create multiple catch block
