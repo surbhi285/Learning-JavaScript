@@ -1,4 +1,24 @@
-/*Prmoise represents future value which right now you donot Know 
+// using Promise over callbacks because 
+// 1-> Callback Hell or we can say pyramid of callback is doom
+//2-> Order of execution of inner callbacks is confusing (out of normal human recognizable patter)
+
+// eg of order of execution
+/*  function googlecall('onboarding mail', (work)=>{
+   console.log(1);
+   //1 work...
+   
+   function googleGetReplies('replies', (playWithReplies)=>{
+      //2. replies
+      console.log(3)
+   })
+   console.log(2);
+   gooogleGetReplies();
+})
+
+order is 1 3 2 but it should be 1 2 3
+*/
+
+/*Promise represents future value which right now you donot Know 
 but is assured that will get the value in future
 
 Pending has 3 stages
@@ -171,3 +191,4 @@ console.log("bye")
 
 // if we put catch in down then it will be handling all the then block error 
 // we can create multiple catch block
+
