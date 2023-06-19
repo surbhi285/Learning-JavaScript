@@ -192,3 +192,8 @@ console.log("bye")
 // if we put catch in down then it will be handling all the then block error 
 // we can create multiple catch block
 
+// if error of boundaries are unhandled  then 
+
+window.addEventListener("unhandledrejection", ()=>{
+   console.log("global error handler")
+})
