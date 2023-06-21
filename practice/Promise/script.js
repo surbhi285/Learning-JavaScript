@@ -3,20 +3,20 @@
 //2-> Order of execution of inner callbacks is confusing (out of normal human recognizable patter)
 
 // eg of order of execution
-/*  function googlecall('onboarding mail', (work)=>{
-   console.log(1);
-   //1 work...
+//  function googlecall('onboarding mail', (work)=>{
+//    console.log(1);
+//    //1 work...
    
-   function googleGetReplies('replies', (playWithReplies)=>{
-      //2. replies
-      console.log(3)
-   })
-   console.log(2);
-   gooogleGetReplies();
-})
+//    function googleGetReplies('replies', (playWithReplies)=>{
+//       //2. replies
+//       console.log(3)
+//    })
+//    console.log(2);
+//    gooogleGetReplies();
+// })
 
-order is 1 3 2 but it should be 1 2 3
-*/
+// order is 1 3 2 but it should be 1 2 3
+
 
 /*Promise represents future value which right now you donot Know 
 but is assured that will get the value in future
@@ -28,13 +28,13 @@ Pending has 3 stages
 
 // fetch Api calls the server ....
 
-console.log("hello")
+// console.log("hello")
 
-const promise = fetch('https://api.kanye.rest/') 
-// when u give the fetch u immediately get promise object but ans you may get after some time
-console.log(promise)
+// const promise = fetch('https://api.kanye.rest/') 
+// // when u give the fetch u immediately get promise object but ans you may get after some time
+// console.log(promise)
 
-console.log("bye")
+// console.log("bye")
 
 // so console of above code is like -> hello
 //                                     Promise {<Pending>}
@@ -42,14 +42,14 @@ console.log("bye")
 
 // so after getting the response after that I want to do something with response for this we use "then"
 
-console.log("hello")
+// console.log("hello")
 
-const promise1 = fetch('https://api.kanye.rest/')
-                 .then(response => console.log(response))
-// so here after getting ans then i want to console response 
-console.log(promise1)
+// const promise1 = fetch('https://api.kanye.rest/')
+//                  .then(response => console.log(response))
+// // so here after getting ans then i want to console response 
+// console.log(promise1)
 
-console.log("bye")
+// console.log("bye")
 // so outout will be like -> hello
 //  Promise {<pending>}
 // bye
@@ -58,43 +58,43 @@ console.log("bye")
 
 ///---- if we want to get the data out of this response we use response.json
  
-console.log("hello")
+// console.log("hello")
 
-const promise2 = fetch('https://api.kanye.rest/')
-                 .then(response => {
-                    return response.json()
-                 })
-                .then (data => console.log(data))
-console.log(promise2)
-console.log("bye")
+// const promise2 = fetch('https://api.kanye.rest/')
+//                  .then(response => {
+//                     return response.json()
+//                  })
+//                 .then (data => console.log(data))
+// console.log(promise2)
+// console.log("bye")
 // output is -> hello
 //Promise {<pending>}
 //bye
 //{quote: 'Everything you do in life stems from either fear or love'}
 
 
-/* Question : take the quote and push it inside the body */
-console.log("hello")
+/* Question : take the quote and push it inside the DOM */
+//console.log("hello123")
 
-const promise3 = fetch('https://api.kanye.rest/')
-                 .then(response => {
-                    console.log(response.status)// 200 -> 200 status means that the request has succeded.
-                    return response.json()
-                 })
-                .then (data => {
-                // operation start from here 
-                const quote = data.quote;
-               // 1-> Create an element 
-               const h1Element = document.createElement('h1');
-                //2-> edit the element
-                h1Element.innerText = quote;
-                //3-> Push the element inside the DOM tree
-                document.body.appendChild(h1Element)
+// const promise3 = fetch('https://api.kanye.rest/')
+//                  .then(response => {
+//                     console.log(response.status)// 200 -> 200 status means that the request has succeded.
+//                     return response.json()
+//                  })
+//                 .then (data => {
+//                 // operation start from here 
+//                 const quote = data.quote;
+//                // 1-> Create an element 
+//                const h1Element = document.createElement('h1');
+//                 //2-> edit the element
+//                 h1Element.innerText = quote;
+//                 //3-> Push the element inside the DOM tree
+//                 document.body.appendChild(h1Element)
 
-                console.log(data, "real data")
-                })
-console.log(promise3)
-console.log("bye")
+//                 console.log(data, "real data")
+//                 })
+// console.log(promise3)
+// console.log("bye123")
 
 // suppose we dont get the data we get the error for that case we use
 //.catch to handle the error 
@@ -102,9 +102,9 @@ console.log("bye")
 
 console.log("hello")
 
-const promise4 = fetch('https://api.kanye.rest12/')
+const promise4 = fetch('https://api.kanye.rest/')
                  .then(response => {
-                    //console.log(response.status)// 200 -> 200 status means that the request has succeded.
+                    console.log(response.status)// 200 -> 200 status means that the request has succeded.
                     return response.json()
                  })
                 .then (data => { 

@@ -3,7 +3,7 @@
 //1-> Promise.all -> It takes an array of promises , in this if any of promise fail 
 //then all the promise will fail
 
-// all the promise need to get resolved then only i will go then block
+// all the promise need to get resolved then only i will go to then block
 
 let payerPromise = new Promise ((res, rej)=>{
     res(95)
