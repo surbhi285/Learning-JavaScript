@@ -10,7 +10,7 @@ let obj ={
 
 // ---TO ADD
 obj ["newProperty"] = 12;
-//console.log(obj)//{name: 'nikhil', rollno: 20, class: '9th', newProperty: 12}
+console.log(obj)//{name: 'nikhil', rollno: 20, class: '9th', newProperty: 12}
 
 // -----ADD DYNAMIC KEY AND VALUE
 // Values are already dynamic
