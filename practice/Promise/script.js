@@ -197,3 +197,6 @@ console.log("bye")
 window.addEventListener("unhandledrejection", ()=>{
    console.log("global error handler")
 })
+
+
+
