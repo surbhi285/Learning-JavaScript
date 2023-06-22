@@ -164,18 +164,24 @@ for(const arr of entryPerson){
 
 // ----Property Descriptors....
 
+// 1-> Enumerable ---
+
 let objt ={
     name: "surbhi",
     rollno: 24,
     address: "road"
 }
 
-// enumurable -> if u have key in for in loop then that property is enemurable
-// to add one property 
+// enumurable -> it is basically a state of property if u have key in for in loop then 
+//that property is enemurable to add one property 
 Object.defineProperty(objt, "cash",{
     value: 100,
     enumerable: true
 })
+
+for(const key in objt){
+console.log(key)
+}
 // as we are doing enumerable true do when we do "for in loop" then key will be 
 // name, rollno, address, cash  but if we do enumerable false and then we for in loop then key will be 
 // name, rollno, address only there will be no cash because we give enumerable false
@@ -184,4 +190,146 @@ console.log(objt.propertyIsEnumerable("name"), "is name Enumerable") // true
 console.log(objt.propertyIsEnumerable("rollno"), "is rollno Enumerable")// true
 console.log(objt.propertyIsEnumerable("address"), "is address Enumerable")// true
 
+
+// 2-> Writable
+// writable basically means the value can be changed
+
+let objt1 ={
+    name: "surbhi",
+    rollno: 24,
+    address: "road"
+}
+
+Object.defineProperty(objt, "cash",{
+    value: 100,
+    writable : true,
+    enumerable: true
+})
+console.log(objt1, "obj3")
+console.log(objt1.cash) // 100
+obj3.cash = 99;
+console.log(objt1.cash) // 99
+
+// so when writable is true we are able to edit the cash value from 100 to 99 
+//but if writable is false then we are not able to edit .
+
+//you cant again define the property which u already defined because inside defineProperty the property is checked
+
+
+// 3-> Configurable
+// properties of an object can be modified, deleted and new propert added
+
+const objt2 ={
+    name: "utkarsh",
+}
+
+Object.defineProperty(obj4,"class",{
+    value: "9th class",
+    enumerable: true,
+    configurable: true,
+})
+
+delete obj4.class
+console.log(obj4, "obj4") 
+// if configurable is true then we are able to delete the property otherwise not
+
+
+
+// 4-> ----------- Own Property --
+// ownProperty is the property of an object which is directy in the object and not in the prototype
+class Car {
+    canMove
+
+    func(){
+        console.log("car audi");
+    }
+}
+
+const carObj = {
+    canMove: true,
+    func: function(){ 
+    console.log("carObj", carObj);
+    }
+}
+console.log(carObj);
+
+const descriptors1 = Object.getOwnPropertyDescriptor(carObj, "canMove") // it will give the property of canMove
+const descriptors2 = Object.getOwnPropertyDescriptor(carObj,"func")// it will give the property of func
+console.log(descriptors1, "descriptors canMove");
+console.log(descriptors2, "descriptors func");
+
+
+/*  
+ few derivative () property of object...  */
+
+ // Object.seal -> you cant delete the exisiting properties and you cant add new properties
+
+ const objt4 = {
+    property1: 42
+ }
+
+ Object.seal(objt4);
+ console.log(Object.getOwnPropertyDescriptor(objt4, "property"))
+
+ delete objt4.property1;
+
+ // adding new property 
+ objt4.abcd ="adaasaasa"
+ console.log(objt4);
+
+ // --------Object.freeze
+ // It prevents the modification in existing property and cannot add new property
+
+ const objt5 = {
+   property1: 42,
+ }
+ Object.freeze(objt5)
+
+ objt5.abcd ="asdadasdad"
+
+ objt5.property1 =99;
+ console.log(objt5) // it will give property1: 42 -> it will neither changing value to 99 nor adding new property abcd
+ // so in this case configurable and writable is false 
+
+ /* Date and Time object ....... */
+
+ // to get a date 
+
+ const rightNow = new Date()
+ console.log(rightNow) // Sat June 03 2023 22:15:15 GMT +0530(India standard time)
+
+ // to get date 
+ console.log(rightNow.getDate(), "date")
+// to get time
+ console.log(rightNow.getTime(), "time") // time in milliseconds from 1970 jan 1
+// to get day 
+ console.log(rightNow.getDay(), "day")
+// to get year
+ console.log(rightNow.getFullYear(), "year")
+
+ // SET  -> we can set date, day, year, time, minutes and seconds
+ // WE CAN SET OUR OWN DATE 
+ rightNow.setDate(15)
+ console.log(rightNow)// 15 
+
+ // to set year 
+ rightNow.setFullYear(2099)
+ console.log(rightNow)
+
+
+ // to convert ist time to utc
+const rightNowDate = new Date() 
+
+console.log(rightNowDate.toUTCString(), "utc time") //-> by this we can convert ist time to utc time
+
+
+// -------------MATH
+
+let date = new Date();
+
+let dateAddedTime = new Date()
+// added 5 min
+dateAddedTime.setTime(data.getTime()+300000)
+console.log(dateAddedTime, date) //it will give time 5 minutes earlier
+console.log(dateAddedTime-date) 
 
