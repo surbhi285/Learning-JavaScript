@@ -162,7 +162,26 @@ for(const arr of entryPerson){
  }
 
 
+// ----Property Descriptors....
 
+let objt ={
+    name: "surbhi",
+    rollno: 24,
+    address: "road"
+}
 
+// enumurable -> if u have key in for in loop then that property is enemurable
+// to add one property 
+Object.defineProperty(objt, "cash",{
+    value: 100,
+    enumerable: true
+})
+// as we are doing enumerable true do when we do "for in loop" then key will be 
+// name, rollno, address, cash  but if we do enumerable false and then we for in loop then key will be 
+// name, rollno, address only there will be no cash because we give enumerable false
+
+console.log(objt.propertyIsEnumerable("name"), "is name Enumerable") // true
+console.log(objt.propertyIsEnumerable("rollno"), "is rollno Enumerable")// true
+console.log(objt.propertyIsEnumerable("address"), "is address Enumerable")// true
 
 
