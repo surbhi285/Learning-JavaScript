@@ -181,4 +181,42 @@ console.log(math1.marks, science1.marks, "subject marks")//100, 80
 
 
 
+//--------------NORMAL FUNCTION VS ARROW FUNCTION------
+
+var a = 100;
+var b=99;
+// global scope
+let obj ={
+    a:10,
+    b:function(){
+        console.log(this.a)
+        console.log(this) // -> f{a:100, b:99}
+    },
+    c: ()=>{
+        console.log(this.a)
+        console.log(this) // it has window obj
+    }
+}
+
+obj.b() // 10
+
+obj.c() // 100
+
+// 1-. there is no concept of CONTEXT inside the arrow function so whatever the context global scope the same
+// context c will have as it has direct execution with parent i.e global execution scope
+
+// 2-> "this" inside the arrow function is nothing but the parents context
+/// in arrow function -> arguments doesnot have the weightage
+
+//---------->Arguments -> nothing but it pointing out the the value
+
+function abc(a, b){
+    const arg = arguments
+    console.log(arg)  //here it give 1 2 
+    console.log(arg, arg[0], agr[1]); // to get any specific value
+
+}
+abc(1, 2)
+
+
 

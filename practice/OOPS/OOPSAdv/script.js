@@ -175,3 +175,89 @@ SportsCaptain.markAttendance();// captain is marking the attendance varun
 
 /// so in class we can inherit by use of "EXTENDS"
 
+/// so before when we dont have classes then by constructor function we create inheritance
+
+function ShapeConstructor(color){
+    this.color=color;
+}
+ShapeConstructor.prototype.move=function(){
+    console.log("Move") // by this we create move function inside prototype
+}
+
+function CircleConstructor(radius, color){
+    ShapeConstructor.call(this.color)   // mocks the calling of super keyword
+    this.radius = radius;
+}
+
+//1-> by doing this we are setting the inheritance
+// this is to set the parent prototype
+CircleConstructor.prototype =Object.create(ShapeConstructor.prototype)
+
+//2-> we add the methods of the circle
+CircleConstructor.prototype.draw = function(){
+    console.log("Draw");
+}
+
+const circleConstObj = new CircleConstructor(1000, "pink")
+console.log(circleConstObj);
+
+
+// COMPOSITION 
+
+// SO basically preference is given to composition instead of inheritance
+
+// class Person{
+//     name
+// }
+
+// class Eat{
+
+// }
+
+// class run{
+
+// }
+
+// class Swim{
+
+// }
+
+// class Person extends Eat, run, Swim{
+
+//}
+//1. multiple inheritance is not supported
+//2. All the properties all the methods would go inside the Person class 
+//which makes the object of person class heavy
+
+//--------lets see MIXIN in below eg
+
+const canSwim={
+    sim: function(){
+        console.log("swim")
+    }
+}
+const canEat={
+    walk:function(){
+        console.log("eat")
+    },
+    funnyWalk: false,
+}
+
+const canWalk ={
+    walk:function(){
+    console.log("walk");
+}
+}
+
+// constructor function
+function Person(){
+    this.name="ram"
+}
+const ram = new Person()
+console.log(ram, "ram person")
+Object.assign(Person.prototype, canWalk, canEat, canSwim) // here person is target obj and canwalk and caneat is source
+
+ram.walk();
+ram.eat();
+
+// so mixin can do multiple inheritance
