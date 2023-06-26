@@ -60,8 +60,16 @@
 // console.log(circle);
 // circle.draw();
 
+/*so the difference between class and constructor function is if we write method in class it will
+not appear in console but in prototype it will be there by this it save time and memory
+ and if we write method in constructor it will appear in console only so it will take more time and memory*/
 
-// -------------CONCEPT OF THIS----------------
+ /* so why classes is impoptant 
+  what basically classes are doing -> they taking their method and putting inside the prototype so that 
+  every object of that class can utilise that method without taking extra space
+  */
+
+// -------------CONCEPT OF THIS----------------S
 // this keyword is nothing but context.
 
 // first understand the callsite of foo function
@@ -250,3 +258,30 @@ console.log(obj1, "obj1") // {a:12, b:25, foo:f}'obj1'
 // console.log(car) // undefined 
 // console.log(obj1) //{a: new implicit  foo f:foo}
 
+//------------important question of this
+function printThis(params){
+console.log(this);
+}
+let obj2 ={
+    a : 10,
+    b:20,
+    c: printThis,
+    d: function(params){ // context of this function is obj so if anyone use "this" in function it will represent obj
+        console.log (this)
+        printThis(); // 2
+        let x = this.c; // here x is nothing but printThis function only 
+        x();//3
+        this.c();//4
+        console.log(this.c==printThis); //5
+    }
+}
+obj.d();//1 -. it is implicit binding
+
+/* 1-> Obj means ->{a:10, b:20, }
+   2-> ans of this will normal window object
+   3-> window object because print this func contain nothing so by default it will be window obj
+   4-> in this "this" contain obj so it is basically obj.printThis() so it contain obj
+   5-> true
+
+
+*/
