@@ -190,8 +190,11 @@ function CircleConstructor(radius, color){
 }
 
 //1-> by doing this we are setting the inheritance
-// this is to set the parent prototype
+// this is to set the parent prototype and  we set shapeconstructor prototype
 CircleConstructor.prototype =Object.create(ShapeConstructor.prototype)
+
+// to add constructor
+CircleConstructorClass.prototype.constructor = CircleConstructor
 
 //2-> we add the methods of the circle
 CircleConstructor.prototype.draw = function(){
