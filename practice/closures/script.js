@@ -30,7 +30,7 @@ function foo(){
     }
     return bar;
 }
-const result = foo();
+const result = foo(); //if write const result=foo;  then it will return foo function
 console.log(result); // -> result will be bar function -> f bar(){let c=30 return a+b+c;}
 
 const resultFinal = result();
@@ -51,3 +51,80 @@ function foo(){
 let resultofExample = foo();
 resultofExample(); //11
 resultofExample();//12
+
+//ex
+var a = 10
+function foo(){
+    console.log(a) // 10 
+}
+
+function bar() {
+    var a = 20
+    foo() 
+}
+
+bar()
+
+//ex2
+var a = 10
+function bar() {
+  var a = 20
+  function foo(){
+    console.log(a) //20 because bar islexical environment of foo function
+  }
+  foo()
+}
+bar()
+
+//ex3
+
+function bar() {
+  function foo(){
+    console.log(a) // undefined -> because foo function excute before the excution of var a
+  }
+  foo()
+  var a = 10
+}
+bar()
+
+
+//ex4
+function outerFunc() {
+    let a = 10;
+  
+    function innerFunc() {
+      console.log(a); // 10
+    }
+    return innerFunc;
+  }
+  
+  let innerFunc = outerFunc();
+  innerFunc();
+
+  //ex
+  let i = 0 
+  function increase(){
+  i++
+  console.log(`courrent counter is ${i}`)
+  return i
+}
+
+increase()//0
+increase()//1
+increase()//2
+
+//ex
+
+let increase = (function(){
+    let i = 0
+    return function(){
+      i++
+      console.log(`courrent counter is ${i}`)
+      return i 
+    }
+  })()// -> this function is called immediately invoked function
+  
+
+  increase() //1
+  increase() //2
+  increase()//3
