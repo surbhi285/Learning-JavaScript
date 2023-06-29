@@ -1,31 +1,31 @@
-"use strict"
+//"use strict"
 //class can have -> 1) Methods
                 //  2) Properties
                 //  3) constructor
-// class Car{
-//     model = "v"; 
-//     speed;  // model and speed are properties of car
+class Car{
+    model = "v"; 
+    speed;  // model and speed are properties of car
 
-//     constructor (speed, model){
-//         this.model=model;
-//         this.speed = speed;
+    constructor (speed, model){
+        this.model=model;
+        this.speed = speed;
+    }
 
-//     }
-//     canIDrive(){  // this is how u can give a method 
-//         console.log("Yes I can drive")
-//         // if we want to write with what speed 
-//         console.log("yes I can drive with speed", this.speed)
-//     }
-// }
+    canIDrive(){  // this is how u can give a method 
+        console.log("Yes I can drive")
+        // if we want to write with what speed 
+        console.log("yes I can drive with speed", this.speed)
+    }
+}
 
-// // to create object of name audii
+// to create object of name audii
 
-// const audi = new Car("123", "v8")
-// console.log(audi);
+const audi = new Car("123", "v8")
+console.log(audi);
 
-// console.log(audi.speed);//undefined ->as we have not given any value in class propertie speed//123 after constructor
-// console.log(audi.model);// v  // v8 -> after constructor
-// console.log(audi.canIDrive()); // Yes I can drive
+console.log(audi.speed);//undefined ->as we have not given any value in class propertie speed//123 after constructor
+console.log(audi.model);// v  // v8 -> after constructor
+console.log(audi.canIDrive()); // Yes I can drive
 
 // // if we use constructor then this will take object values 
 
@@ -33,32 +33,32 @@
 // // ------Constructor function--------
 // // class was introduced in 2015 so before ES6 constructor functions are used
 
-// function CarConstructor(sp, md) {
-//     this.sp = sp;
-//     this.md = md;
-//     this.canIDrive = function(){
-//         console.log("Yes i can drive")
-//         // here we want to write i can drive with speed then
-//         console.log("I can drive with speed", this.sp)
-//     }
-// } 
+function Car(sp, md) {
+    this.sp = sp;
+    this.md = md;
+    this.canIDrive = function(){
+        console.log("Yes i can drive")
+        // here we want to write i can drive with speed then
+        console.log("I can drive with speed", this.sp)
+    }
+} 
 
-// const hyundai = new CarConstructor(200, "prime")
-// console.log(hyundai);
+const hyundai = new Car(200, "prime")
+console.log(hyundai);
 
-// console.log(hyundai.md, hyundai.sp);
-// hyundai.canIDrive();
+console.log(hyundai.md, hyundai.sp);
+hyundai.canIDrive();
 
-// function CircleRadius(radius, location){
-//     this.radius = radius;
-//     this.location= location;
-//     this.draw = function(){
-//         console.log("location x ",this.location.x, "location y", this.location.y)
-//     }
-// }
-// const circle = new CircleRadius(10, {x:50, y:200});
-// console.log(circle);
-// circle.draw();
+function CircleRadius(radius, location){
+    this.radius = radius;
+    this.location= location;
+    draw = function(){
+        console.log("location x ",this.location.x, "location y", this.location.y)
+    }
+}
+const circle = new CircleRadius(10, {x:50, y:200});
+console.log(circle);
+circle.draw();
 
 /*so the difference between class and constructor function is if we write method in class it will
 not appear in console but in prototype it will be there by this it save time and memory
@@ -89,12 +89,12 @@ not appear in console but in prototype it will be there by this it save time and
 
 /*   RULE-1 ->  DEFAULT BINDING   
 In js callsite will determine that what will be the context of function   */
-
-// function foo(){
-//     console.log(this.abc); // it will return undefined -> it is as good as saying window.abc
-//     console.log(this)
-// }
-// foo(); // here foo call site is global so it will return according to global
+"Use-strict"
+function foo(){
+    console.log(this.abc); // it will return undefined -> it is as good as saying window.abc
+    console.log(this)
+}
+foo(); // here foo call site is global so it will return according to global
 
 /* RULE-2 -> IMPLICIT BINDING()
 here js will determine the context
@@ -103,9 +103,11 @@ here js will determine the context
 // function foo(){
 //     console.log(this);
 // }
+
 // var obj ={
 //      name:"surbhi",
 //      rollNumber: 28,
+
 //      func : function(){
 //         console.log(this.name, this.rollNumber) // surbhi 28 
 //      }
@@ -147,6 +149,34 @@ obj.sum(1, 2) // hello sum(1, 2) // this is call site
 const sumCopy = obj.sum
 
 sumCopy(1, 3); // hello sum(1, 3)// this is call site
+//...............
+let newobj={
+    name:"monday",
+    sum:function(a,b){
+        console.log(a+b);
+    }
+}
+newobj.sum(9,2);//call site
+
+let copynewobj=newobj;
+console.log(copynewobj);//copy object
+
+copynewobj=newobj.sum;//copy object function
+
+console.log(copynewobj);
+copynewobj(5,8);//excuting function,call site
+
+//Example ..4.....?
+
+function lead(num){
+    this.a=num;
+}
+var OBj={
+    lead:lead
+}
+
+OBj.lead(100);
+console.log(OBj);
 
 /* RULE-3 -> EXPLICIT BINDING()
 user needs to tell javascript what is the context 
@@ -285,3 +315,20 @@ obj.d();//1 -. it is implicit binding
 
 
 */
+
+//------------example
+let myobj={
+    num1:1,
+    num2:3,
+    num3:5,
+    sum:function(){
+        console.log("Inside the object");//Inside the object
+        console.log(this.num2+" "+this.num3);//undefine
+        console.log(this.sum);//function obj
+        console.log(this.num1+this.num2);//undefine+undefine===>NaN
+    }
+}
+
+let copymyobj=myobj.sum
+
+copymyobj()
