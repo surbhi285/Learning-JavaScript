@@ -189,21 +189,21 @@ user needs to tell javascript what is the context
 //     food: foo,
 // }
 // // way 1 -> to call a function
-// function abc(a, b){
-//     console.log(this)
-//     console.log("asdasda", a, b); // asdasda 10 20
-//     console.log("answer of a", this.a)
-// }
+function abc(a, b){
+    console.log(this)
+    console.log("asdasda", a, b); // asdasda 10 20
+    console.log("answer of a", this.a)
+}
 
 // //abc(1, 2);  // call site of abc is global
 
-// abc.call(obj, 10, 20)
-// // output will be
-// // asdasda 1 2
-// // {a: 1, food: ƒ}
-// // asdasda 10 20
+abc.call(obj, 10, 20)
+// output will be
+// asdasda 1 2
+// {a: 1, food: ƒ}
+// asdasda 10 20
 
-// apply 
+apply 
 
 // function foo(a,b){
 //     this.a = a;
