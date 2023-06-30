@@ -332,3 +332,40 @@ let myobj={
 let copymyobj=myobj.sum
 
 copymyobj()
+
+
+//------> Concept of this with new keyword
+
+function Person(){
+    this.name='surbhi';
+    this.age=23;
+    this.sayAge = ()=>{
+        console.log(this.age)
+    }
+}
+
+const newPerson = new Person();
+const fun = newPerson.sayAge; 
+fun();
+
+// output of above function is 23 bt how its because
+// according to call site the binding is default..the context should be this
+// but it is arrow function which donot take "this" we cant set context with arrow function
+// there is no concept of binding in the arrow function
+// so the code is converted by js is like
+/*
+function Person(){
+    var _this=this;
+    this.name='surbhi';
+    this.age=23;
+    this.sayAge = ()=>{
+        console.log(_this.age)
+    }
+}
+
+const newPerson = new Person();
+const fun = newPerson.sayAge; 
+fun();
+
+so in the converted code we can see that the _this(VARIABLE) makes closure with the sayAge Function.
+*/
