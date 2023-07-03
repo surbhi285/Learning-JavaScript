@@ -80,6 +80,24 @@ console.log("k")
  */
   
 
+//------------Set Interval---------
+console.log("initial commit")
 
+let setTimeoutId = setTimeout(()=>{
+    console.log("hey there");
+}, 3000)
 
+clearTimeout(setTimeoutId);
+console.log(setTimeoutId, "setTimeOut")
+const setIntervalId = setInterval(()=>{ // it will execute the function after every 3 sec
+    console.log("....repeat")
+}, 3000)
+clearInterval(setIntervalId);
+
+console.log(setIntervalId, "set Intervsl Id")
+
+// so as this set interval go on n on after every 3 sec so we can stop this by setInterval id by using 
+//it browser give a number as setIntervalId and we write clearInterval(setIntervalId whatever browser give);
+
+//we can also unsubscribe timeout by using setTimeOutId and then clearTimeOut(setTimeOutId)
 
