@@ -289,7 +289,7 @@ console.log(obj1, "obj1") // {a:12, b:25, foo:f}'obj1'
 // console.log(obj1) //{a: new implicit  foo f:foo}
 
 //------------important question of this
-function printThis(params){
+function printThis(params){                                                                                                    
 console.log(this);
 }
 let obj2 ={
