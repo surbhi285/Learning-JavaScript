@@ -2,7 +2,7 @@
 // 1-> what will following line will print in js
 console.log("har\"".length)
 
-//2-> To use inclue method in string
+//2-> To use include method in string
 const sentence = `The quick brown fox jumps over the dog.`
 const word = `fox`
 console.log(`The words "${word}" ${sentence.includes(word)?'is':'is not'} in the sentence`);
