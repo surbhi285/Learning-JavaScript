@@ -12,7 +12,7 @@ Array.prototype.myMap = function(callback){
     // let arr = [1, 2, 3, 4, 5] // if we use these elements then result will be {1, 2, 3, 4, 5}
 
     let arr = this;
-     const result=[];// this collects the returned value from callback function
+    const result=[];// this collects the returned value from callback function
      
      for(let item of arr){
          const returnVal = callback(item)
