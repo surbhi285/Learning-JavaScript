@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     console.dir(containerDiv);
 })
 
-console.log("------outside------")
+console.log("------outside--------")
 
 const containerDiv = document.getElementById("container");
 console.log(containerDiv);
@@ -25,9 +25,8 @@ document.addEventListener("load", ()=>{
 
 // 3-> -----------beforeunload-----------
 /* This event is called when user is moving from one page to another
-a) this event is used for cleaning purpose 
-b) cancel all eventlistener
-c) saving the form if accidental reload..*/
+a) this event is used for cleaning purpose , cancel all eventlistener
+b) saving the form if accidental reload..*/
 
 document.addEventListener("beforeUnload", ()=>{
 
