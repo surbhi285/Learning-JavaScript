@@ -21,7 +21,7 @@ let a = 10; //-> global variable
 function foo(){
     let b =20; //-> foo variable
     let abcd =100; // it will not be include in closure because in bar we are not using abcd so in parsing only
-    // it will decide which one is sing in bar or not , if we use abcd in bar function then it can be included
+    // it will decide which one is there in bar or not , if we use abcd in bar function then it can be included
     //in closure;
 
     function bar(){
