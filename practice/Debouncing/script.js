@@ -1,4 +1,4 @@
-// debouncing in javascript
+// ============= DEBOUNCE METHOD ================
 
 
 let counter = 0;
